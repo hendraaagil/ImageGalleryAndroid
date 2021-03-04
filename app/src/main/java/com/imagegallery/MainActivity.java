@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.android.volley.Request;
@@ -17,7 +18,11 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ExampleAdapter.OnBtnDetailClickListener {
+    public static final String EXTRA_URL = "imageUrl";
+    public static final String EXTRA_CREATOR = "creatorName";
+    public static final String EXTRA_LIKES = "likes";
+
     private RecyclerView recyclerView;
     private ExampleAdapter exampleAdapter;
     private ArrayList<ExampleItem> exampleItems;
@@ -55,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
                 exampleAdapter = new ExampleAdapter(MainActivity.this, exampleItems);
                 recyclerView.setAdapter(exampleAdapter);
+                exampleAdapter.setOnItemClickListener(MainActivity.this);
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -62,5 +68,17 @@ public class MainActivity extends AppCompatActivity {
         }, Throwable::printStackTrace);
 
         requestQueue.add(request);
+    }
+
+    @Override
+    public void onBtnClick(int position) {
+        Intent detailIntent = new Intent(this, DetailActivity.class);
+        ExampleItem clickedItem = exampleItems.get(position);
+
+        detailIntent.putExtra(EXTRA_URL, clickedItem.getImageUrl());
+        detailIntent.putExtra(EXTRA_CREATOR, clickedItem.getCreator());
+        detailIntent.putExtra(EXTRA_LIKES, clickedItem.getLikes());
+
+        startActivity(detailIntent);
     }
 }
