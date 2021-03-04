@@ -39,8 +39,8 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
         int likes = item.getLikes();
 
         holder.textViewCreator.setText(creatorName);
-        holder.textViewLikes.setText("Like(s): " + likes);
-        Picasso.get().load(imageUrl).fit().centerInside().into(holder.imageView);
+        holder.textViewLikes.setText("Like(s) : " + likes);
+        Picasso.get().load(imageUrl).fit().centerCrop().into(holder.imageView);
     }
 
     @Override
