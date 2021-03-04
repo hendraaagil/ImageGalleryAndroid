@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".DetailActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp">
+
+        <ImageView
+            android:id="@+id/image_view_detail"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:src="@mipmap/ic_launcher" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/text_view_creator_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Creator Name"
+        android:textSize="36sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginVertical="16dp" />
+
+    <TextView
+        android:id="@+id/text_view_likes_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Like(s) : "
+        android:textSize="24sp" />
+
+</LinearLayout>
