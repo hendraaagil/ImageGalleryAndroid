@@ -13,6 +13,6 @@
 4. Then, add static variable called `API_URL` which is Pixabay API URL with your API Key.
 5. Sync gradle.
 
-You can download and install released APK at [here](https://github.com/hendraaagil/ImageGalleryAndroid/releases/download/v1.0/Image.Gallery-release-unsigned.apk).
+You can download and install released APK at [here](https://github.com/hendraaagil/ImageGalleryAndroid/releases/download/v1.0/app-debug.apk).
 
 Thanks.
